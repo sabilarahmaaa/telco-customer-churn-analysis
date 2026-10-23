@@ -1,6 +1,6 @@
 # Who Should We Try to Keep? A Churn Story from a Telco Snapshot
 
-![Story overview](dashboard/00_story_overview.png)
+![Story overview](00_story_overview.png)
 
 ## The situation
 A telecom company in California lost 1,869 of its 7,043 customers in the third quarter, a churn rate of 26.54%. Those customers also carried 30.50% of all monthly charges, more than their share of the customer count. Losing customers is costly, but retention effort is limited. The question I set out to answer was:
@@ -12,7 +12,7 @@ The first clue is the contract type. Month-to-Month customers are only 51.26% of
 
 Inside Month-to-Month, internet type and tenure separate the groups sharply. Fiber customers in their first 1–6 months churn at 77.49%, the highest of any group. Fiber customers with more than 6 months churn at 50.65%, but they are a bigger group, so they produce the most churners (663). Together, these two Fiber segments account for 68.7% of all churned monthly charges. Fiber on a monthly contract is where both the rate and the money are.
 
-![Churn overview dashboard](dashboard/01_churn_overview.png)
+![Churn overview dashboard](01_churn_overview.png)
 
 ## What these customers say and what their services show
 The recorded reasons point outward. Competitor-related reasons are the most common, 841 of 1,869 churners, with better devices and better offers from competitors leading. In the two Fiber segments, 49.55% and 45.85% of churners recorded a competitor reason. Price comes up far less (211 churners). Churned and retained Fiber customers also pay almost the same median monthly charge, so the data does not suggest that price alone explains the exit.
@@ -22,7 +22,7 @@ Services add a second signal. Among Fiber monthly customers, churn is 65.7% for 
 ## From patterns to a priority group
 Churn history tells us who left, but retention work targets customers who are still here. Among active customers (Stayed or Joined), 775 are Fiber monthly customers, and 460 of them have neither Security nor Tech Support. These 460 customers are the focus group. Of them, 95 sit in the top CLTV quartile, which gives a sense of customer value but is not a prediction of who will churn.
 
-![Retention priorities dashboard](dashboard/02_retention_priorities.png)
+![Retention priorities dashboard](02_retention_priorities.png)
 
 ## What I would recommend
 1. **Focus evaluation on Fiber monthly customers.** The two Fiber segments hold 68.7% of churned charges. Review the early experience of customers in months 1–6 and why customers beyond 6 months stay or leave. Track churn rate per group over the same period.
@@ -33,23 +33,23 @@ Churn history tells us who left, but retention work targets customers who are st
 The data is a single-quarter snapshot with no dates, so the churn rate here is a proportion, not a monthly or annual rate, and trends or cohorts cannot be built. Recorded reasons do not prove cause. Satisfaction Score and Churn Score look like they were measured after the customer left, so I did not use them as drivers. Acquisition cost cannot be computed because the data has no cost columns. Measuring whether a recommendation works needs follow-up data after an action is tested.
 
 ## Project files
-| What | Where |
+| What | File |
 |---|---|
-| Analysis notebook | [notebooks/Telco_Churn_Analysis.ipynb](notebooks/Telco_Churn_Analysis.ipynb) · [Open in Colab]([colab link]) |
-| Power BI dashboard (2 pages) | [dashboard/Telco_Churn_Dashboard.pbix](dashboard/Telco_Churn_Dashboard.pbix) |
-| Dashboard screenshots | [dashboard/](dashboard/) |
-| Raw data | [data/raw/Telco_Churn_Data.zip](data/raw/Telco_Churn_Data.zip) |
-| Power BI ready dataset | [data/processed/telco_churn_powerbi.csv](data/processed/telco_churn_powerbi.csv) |
-| Slides (PDF) | [slides/Telco_Customer_Churn_Slides.pdf](slides/Telco_Customer_Churn_Slides.pdf) |
+| Analysis notebook | [Telco_Churn_Analysis.ipynb](Telco_Churn_Analysis.ipynb) |
+| Power BI dashboard (2 pages) | [Telco Churn Dashboard.pbix](Telco%20Churn%20Dashboard.pbix) |
+| Dashboard screenshots | [01_churn_overview.png](01_churn_overview.png), [02_retention_priorities.png](02_retention_priorities.png) |
+| Raw data | [Telco_Churn_Data.zip](Telco_Churn_Data.zip) |
+| Power BI ready dataset | [telco_churn_powerbi.csv](telco_churn_powerbi.csv) |
+| Slides (PDF) | [Telco_Customer_Churn_Slides.pdf](Telco_Customer_Churn_Slides.pdf) |
 
 ## How the analysis was built
 Six source tables were merged into one row per customer. Missing values were treated by their meaning, for example "No Internet" and "Not Applicable". Eleven customers with tenure 0 were flagged for review rather than filled in. The notebook then moves from the overall churn rate to contract, internet type and tenure, reasons, services, and CLTV, and exports the dataset used by the dashboard.
 
 ## How to run
-1. Open the notebook in Google Colab.
+1. Open `Telco_Churn_Analysis.ipynb` in Google Colab.
 2. Upload `Telco_Churn_Data.zip` to Colab before running the notebook.
 3. Run all cells. The final cell exports `telco_churn_powerbi.csv`.
-4. Open the `.pbix` in Power BI Desktop (Windows).
+4. Open the `.pbix` file in Power BI Desktop (Windows).
 
 *The infographic at the top was designed with AI assistance from my analysis results. All figures come from the notebook.*
 
