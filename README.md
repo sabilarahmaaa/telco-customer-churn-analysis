@@ -51,6 +51,5 @@ Six source tables were merged into one row per customer. Missing values were tre
 3. Run all cells. The final cell exports `telco_churn_powerbi.csv`.
 4. Open the `.pbix` file in Power BI Desktop (Windows).
 
-*The infographic at the top was designed with AI assistance from my analysis results. All figures come from the notebook.*
 
 Author: Sabila Rahma Utomo
